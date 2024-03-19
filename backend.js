@@ -15,8 +15,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/test", (req, res) => {
-  console.log("Process ENV Port:", process.env.PORT);
-  res.send("testing");
+  res.send(`Process ENV Port: ${process.env.PORT}`);
 });
 
 app.get("/users", (req, res) => {
