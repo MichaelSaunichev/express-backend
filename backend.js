@@ -15,8 +15,9 @@ app.get("/", (req, res) => {
 });
 
 app.get("/test", (req, res) => {
+  console.log("Process ENV Port:", process.env.PORT);
   res.send("testing");
-})
+});
 
 app.get("/users", (req, res) => {
   const name = req.params["name"];
