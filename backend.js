@@ -18,6 +18,13 @@ app.get("/test", (req, res) => {
   res.send(`Process ENV Port: ${process.env.PORT}`);
 });
 
+// Health check endpoint
+app.get('/health', async (req, res) => {
+  const serverStatus = 'ok';
+  const mongoStatus = await userServices.checkMongoConnection();
+  res.json({ serverStatus, mongoStatus });
+});
+
 app.get("/users", (req, res) => {
   const name = req.params["name"];
   userServices.getUsers(name)
