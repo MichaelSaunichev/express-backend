@@ -21,8 +21,8 @@ app.get("/test", (req, res) => {
 // Health check endpoint
 app.get('/health', async (req, res) => {
   const serverStatus = 'ok';
-  const mongoStatus = await userServices.checkMongoConnection();
-  res.json({ serverStatus, mongoStatus });
+  const databaseStatus = await userServices.checkMongoConnection();
+  res.json({ serverStatus, databaseStatus });
 });
 
 app.get("/users", (req, res) => {
